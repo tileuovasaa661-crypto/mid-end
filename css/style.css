@@ -1,1 +1,714 @@
+ html {
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+}
+
+
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 5, 30, 0.45);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+    color: #e9dfc7;
+  padding: 1.5rem;
+}
+
+.hero__subtitle {
+  font-family: "IM Fell English", serif;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero__btn {
+  padding: 0.75rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/*Надпись Коралина*/
+.hero__title {
+    font-family: "IM Fell English", serif;
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: -2px;
+    color: #e9dfc7;
+    text-shadow:
+        2px 2px 0 #171717,
+        -1px -1px 0 #171717;
+    transform: rotate(-2deg);
+}
+
+@media (min-width: 37.5rem) {
+  .hero__title {
+    font-size: 100px;
+  }
+}
+
+/* Пуговица*/
+.button-letter {
+  display: inline-block;
+  position: relative;
+  width: 0.56em;
+  height: 0.56em;
+  margin: 0 0.04em;
+  vertical-align: 0.04em;
+  background-color: #1c1b4d;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0.03em 0.05em rgba(0, 0, 0, 0.5),
+    0 0.02em 0.04em rgba(0, 0, 0, 0.35);
+}
+
+.button-letter .hole {
+  position: absolute;
+  width: 0.09em;
+  height: 0.09em;
+  background-color: #f1e9d2;
+  border-radius: 50%;
+}
+
+.button-letter .hole--tl { top: 28%; left: 28%; }
+.button-letter .hole--tr { top: 28%; left: 63%; }
+.button-letter .hole--bl { top: 63%; left: 28%; }
+.button-letter .hole--br { top: 63%; left: 63%; }
+
+.hero__btn {
+  padding: 0.75rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-family: "IM Fell English", serif;
+  font-size: 1.1rem;
+  background-color: rgba(20, 8, 35, 0.65);
+  color: #e9dfc7;
+  border: 1px solid rgba(110, 40, 160, 0.3);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.hero__btn:hover {
+  background-color: rgba(35, 12, 58, 0.85);
+  border-color: rgba(110, 40, 160, 0.5);
+  color: #f1e9d2;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+
+.characters {
+  padding: 4rem 1.5rem;
+  background-color: #14102a;
+  color: #e9dfc7;
+}
+
+.characters {
+  position: relative;
+  padding: 4rem 1.5rem;
+  background-color: #14102a;
+  background-image:
+    linear-gradient(115deg, transparent 48%, rgba(150, 90, 220, 0.15) 49%, rgba(150, 90, 220, 0.15) 50%, transparent 51%),
+    linear-gradient(25deg, transparent 48%, rgba(100, 120, 220, 0.12) 49%, rgba(100, 120, 220, 0.12) 50%, transparent 51%),
+    linear-gradient(70deg, transparent 48%, rgba(150, 90, 220, 0.1) 49%, rgba(150, 90, 220, 0.1) 50%, transparent 51%);
+  background-size: 18rem 18rem, 24rem 24rem, 14rem 14rem;
+  color: #e9dfc7;
+}
+ 
+.characters__title {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.characters__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.char-card {
+  background-color: rgba(30, 20, 55, 0.6);
+  border: 1px solid rgba(110, 40, 160, 0.3);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.char-card__img {
+  width: 100%;
+  height: 16rem;
+  object-fit: contain;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.char-card__name {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.char-card__desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #cfc4e8;
+}
+
+@media (min-width: 48rem) {
+  .characters__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .characters__title {
+    font-size: 2.25rem;
+    text-align: left;
+    max-width: 75rem;
+    margin: 0 auto 2.5rem;
+  }
+}
+
+@media (min-width: 75rem) {
+  .characters__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+.coraline-nav {
+  background-color: rgba(20, 16, 42, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.coraline-nav .navbar-brand {
+  font-family: 'IM Fell English', serif;
+  font-size: 1.4rem;
+  color: #e9dfc7;
+}
+
+.coraline-nav .nav-link {
+  color: #cfc4e8;
+  margin: 0 0.25rem;
+}
+
+.coraline-nav .nav-link:hover {
+  color: #e9dfc7;
+}
+
+
+.about-section {
+  background-color: #14102a;
+  color: #e9dfc7;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.about-section__title {
+  font-family: 'IM Fell English', serif;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.about-section__text {
+  color: #cfc4e8;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.about-section__img {
+  width: 100%;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
+
+
+.gallery-section {
+  background-color: #14102a;
+  color: #e9dfc7;
+}
+
+.gallery-section__title {
+  font-family: 'IM Fell English', serif;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.gallery-section__badge {
+  background-color: rgba(150, 90, 220, 0.25);
+  color: #e9dfc7;
+  border: 1px solid rgba(150, 90, 220, 0.4);
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+}
+
+
+.gallery-card {
+  background-color: rgba(30, 20, 55, 0.6);
+  border: 1px solid rgba(110, 40, 160, 0.3);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-card .card-body {
+  flex: 1;
+}
+
+
+.gallery-card .card-img-top {
+  height: 14rem;
+  object-fit: cover;
+}
+
+.gallery-card .card-text {
+  color: #cfc4e8;
+}
+
+
+
+.contact-section {
+  background-color: #14102a;
+  color: #e9dfc7;
+  padding-bottom: 5rem;
+}
+
+.contact-section__title {
+  font-family: 'IM Fell English', serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-section__subtitle {
+  color: #cfc4e8;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.contact-form .form-label {
+  color: #e9dfc7;
+}
+
+.contact-form .form-control {
+  background-color: rgba(30, 20, 55, 0.6);
+  border: 1px solid rgba(110, 40, 160, 0.3);
+  color: #e9dfc7;
+}
+
+.contact-form .form-control:focus {
+  background-color: rgba(30, 20, 55, 0.8);
+  border-color: rgba(150, 90, 220, 0.6);
+  color: #e9dfc7;
+  box-shadow: 0 0 0 0.2rem rgba(150, 90, 220, 0.2);
+}
+
+.contact-form .form-control::placeholder {
+  color: rgba(207, 196, 232, 0.5);
+}
+
+.contact-form__btn {
+  padding: 0.6rem 2.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  background-color: rgba(150, 90, 220, 0.8);
+  color: #e9dfc7;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.contact-form__btn:hover {
+  background-color: rgba(150, 90, 220, 1);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+.comparison-table caption {
+  caption-side: bottom;
+  color: #cfc4e8;
+  font-style: italic;
+  margin-top: 0.75rem;
+  text-align: left;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.comparison-table thead th {
+  color: #e9dfc7;
+  font-family: 'IM Fell English', serif;
+  font-size: 1.1rem;
+  border-bottom: 2px solid rgba(150, 90, 220, 0.5);
+}
+
+.comparison-table tbody th {
+  color: #e9dfc7;
+  font-weight: 600;
+}
+
+.comparison-table tbody td {
+  color: #e9dfc7;
+}
+
+.comparison-table tbody tr {
+  border-bottom: 1px solid rgba(150, 90, 220, 0.2);
+}
+
+.comparison-table tbody tr:nth-child(even) {
+  background-color: rgba(150, 90, 220, 0.07);
+}
+
+.contact-form .form-select {
+  background-color: rgba(30, 20, 55, 0.6);
+  border: 1px solid rgba(110, 40, 160, 0.3);
+  color: #e9dfc7;
+}
+
+.contact-form .form-select:focus {
+  background-color: rgba(30, 20, 55, 0.8);
+  border-color: rgba(150, 90, 220, 0.6);
+  color: #e9dfc7;
+  box-shadow: 0 0 0 0.2rem rgba(150, 90, 220, 0.2);
+}
+
+.contact-form .form-select option {
+  background-color: #14102a;
+  color: #e9dfc7;
+}
+
+.characters__search {
+  max-width: 75rem;
+  margin: 0 auto 2rem;
+}
+
+.characters__search .form-label {
+  color: #e9dfc7;
+  font-size: 1rem;
+}
+
+.characters__search .form-control {
+  max-width: 420px;
+  background-color: rgba(30, 20, 55, 0.6);
+  border: 1px solid rgba(110, 40, 160, 0.3);
+  color: #e9dfc7;
+  padding: 0.75rem 1rem;
+}
+
+.characters__search .form-control:focus {
+  background-color: rgba(30, 20, 55, 0.8);
+  border-color: rgba(150, 90, 220, 0.6);
+  color: #e9dfc7;
+  box-shadow: 0 0 0 0.2rem rgba(150, 90, 220, 0.2);
+}
+
+.characters__search .form-control::placeholder {
+  color: #a99bc8;
+}
+
+#characterCount {
+  color: #cfc4e8;
+}
+
+
+.characters__search .form-select {
+  max-width: 420px;
+  background-color: rgba(30, 20, 55, 0.6);
+  border: 1px solid rgba(110, 40, 160, 0.3);
+  color: #e9dfc7;
+  padding: 0.75rem 1rem;
+}
+
+.characters__search .form-select:focus {
+  background-color: rgba(30, 20, 55, 0.8);
+  border-color: rgba(150, 90, 220, 0.6);
+  color: #e9dfc7;
+  box-shadow: 0 0 0 0.2rem rgba(150, 90, 220, 0.2);
+}
+
+.characters__search .form-select option {
+  background-color: #14102a;
+  color: #e9dfc7;
+}
+
+
+.quiz-section {
+  background-color: #14102a;
+  color: #e9dfc7;
+  padding: 4rem 0;
+}
+
+.quiz-section__title {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-section__subtitle {
+  color: #cfc4e8;
+  margin-bottom: 2rem;
+}
+
+.quiz-box {
+  max-width: 800px;
+  padding: 2rem;
+  background-color: rgba(30, 20, 55, 0.6);
+  border: 1px solid rgba(110, 40, 160, 0.3);
+  border-radius: 0.75rem;
+}
+
+.quiz-progress {
+  color: #cfc4e8;
+  margin-bottom: 1rem;
+}
+
+.quiz-question {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.quiz-answers {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.quiz-answer {
+  background-color: rgba(20, 16, 42, 0.8);
+  color: #e9dfc7;
+  border: 1px solid rgba(150, 90, 220, 0.4);
+  border-radius: 0.5rem;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-family: Georgia, serif;
+  cursor: pointer;
+}
+
+.quiz-answer:hover {
+  background-color: rgba(150, 90, 220, 0.2);
+}
+
+.quiz-answer:focus-visible {
+  outline: 2px solid #e9dfc7;
+  outline-offset: 3px;
+}
+
+.quiz-answer:disabled {
+  cursor: default;
+}
+
+.quiz-answer.correct {
+  border-color: #75bb91;
+  background-color: rgba(50, 120, 75, 0.25);
+}
+
+.quiz-answer.incorrect {
+  border-color: #d88a9a;
+  background-color: rgba(140, 50, 75, 0.25);
+}
+
+.quiz-feedback {
+  margin-top: 1rem;
+  color: #e9dfc7;
+}
+
+.quiz-result {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .quiz-box {
+    padding: 1.25rem;
+  }
+
+  .quiz-question {
+    font-size: 1.2rem;
+  }
+}
+
+
+.secret-section {
+  background-color: #14102a;
+  padding: 2rem 0;
+}
+
+.secret-message {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  max-width: 800px;
+  color: #e9dfc7;
+  background-color: rgba(30, 20, 55, 0.6);
+  border: 1px solid rgba(110, 40, 160, 0.3);
+  border-radius: 0.75rem;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+
+.secrets-info-section {
+  background-color: #14102a;
+  padding: 1rem 0 2rem;
+}
+
+.secrets-info {
+  max-width: 800px;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: rgba(30, 20, 55, 0.6);
+  border: 1px solid rgba(110, 40, 160, 0.3);
+  border-radius: 0.75rem;
+  color: #e9dfc7;
+}
+
+.secrets-info h3 {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.secrets-info p {
+  color: #cfc4e8;
+  line-height: 1.6;
+}
+
+
+
+body:has(.gallery-section) {
+  background-color: #14102a;
+  background-image:
+    repeating-linear-gradient(
+      125deg,
+      transparent 0px,
+      transparent 180px,
+      rgba(140, 95, 200, 0.045) 181px,
+      transparent 183px
+    );
+  background-attachment: fixed;
+}
+
+body:has(.gallery-section) .gallery-section,
+body:has(.gallery-section) .about-section,
+body:has(.gallery-section) .secret-section,
+body:has(.gallery-section) .secrets-info-section,
+body:has(.gallery-section) .quiz-section,
+body:has(.gallery-section) .contact-section {
+  background-color: transparent;
+  background-image: none;
+}
+
+
+
+
+/* Continuous background for Home page */
+
+body:has(.hero) {
+  background-color: #14102a;
+  background-image:
+    repeating-linear-gradient(
+      125deg,
+      transparent 0px,
+      transparent 180px,
+      rgba(140, 95, 200, 0.045) 181px,
+      transparent 183px
+    );
+  background-attachment: fixed;
+}
+
+/* Same background through About and Characters */
+body:has(.hero) .about-section,
+body:has(.hero) .characters {
+  background-color: transparent;
+  background-image: none;
+}
+
+
+/* Comfortable table on mobile */
+
+@media (max-width: 575px) {
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparison-table {
+    min-width: 620px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 1rem;
+    line-height: 1.6;
+  }
+}
+
+/* Mobile table scrolling fix */
+
+@media (max-width: 575px) {
+  .about-section .container {
+    min-width: 0;
+  }
+
+  .about-section .table-responsive {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .about-section .comparison-table {
+    width: 620px;
+    min-width: 620px;
+    margin-top: 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .comparison-table {
+    min-width: 650px;
+  }
+}
